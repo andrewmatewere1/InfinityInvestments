@@ -3,72 +3,77 @@ export class Navigation {
     constructor() {
         this.navbar = document.querySelector('nav');
         this.mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        this.mobileMenu = document.getElementById('mobileMenu');
-        this.mobileMenuIcon = this.mobileMenuBtn?.querySelector('i');
+        this.offCanvasMenu = document.getElementById('offCanvasMenu');
+        this.offCanvasOverlay = document.getElementById('offCanvasOverlay');
+        this.offCanvasClose = document.getElementById('offCanvasClose');
         this.isMenuOpen = false;
         
         this.init();
     }
 
     init() {
-        this.setupMobileMenu();
+        this.setupOffCanvasMenu();
         this.setupSmoothScrolling();
         this.setupActiveNavigation();
     }
 
-    setupMobileMenu() {
+    setupOffCanvasMenu() {
         if (!this.mobileMenuBtn) return;
 
+        // Hamburger menu toggle
         this.mobileMenuBtn.addEventListener('click', () => {
-            this.toggleMobileMenu();
+            this.toggleOffCanvasMenu();
+        });
+
+        // Close button functionality
+        this.offCanvasClose?.addEventListener('click', () => {
+            this.closeOffCanvasMenu();
+        });
+
+        // Overlay click to close
+        this.offCanvasOverlay?.addEventListener('click', () => {
+            this.closeOffCanvasMenu();
         });
 
         // Close menu when clicking on links
-        const mobileMenuLinks = this.mobileMenu?.querySelectorAll('a');
-        mobileMenuLinks?.forEach(link => {
+        const offCanvasLinks = this.offCanvasMenu?.querySelectorAll('a');
+        offCanvasLinks?.forEach(link => {
             link.addEventListener('click', () => {
-                this.closeMobileMenu();
+                this.closeOffCanvasMenu();
             });
         });
 
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (this.isMenuOpen && 
-                !this.navbar.contains(e.target) && 
-                !this.mobileMenu.contains(e.target)) {
-                this.closeMobileMenu();
+        // ESC key to close
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && this.isMenuOpen) {
+                this.closeOffCanvasMenu();
             }
         });
     }
 
-    toggleMobileMenu() {
+    toggleOffCanvasMenu() {
         this.isMenuOpen = !this.isMenuOpen;
         
         if (this.isMenuOpen) {
-            this.openMobileMenu();
+            this.openOffCanvasMenu();
         } else {
-            this.closeMobileMenu();
+            this.closeOffCanvasMenu();
         }
     }
 
-    openMobileMenu() {
-        this.mobileMenu.classList.remove('hidden');
-        this.mobileMenu.classList.add('mobile-menu-enter');
-        this.mobileMenuIcon?.classList.remove('fa-bars');
-        this.mobileMenuIcon?.classList.add('fa-times');
+    openOffCanvasMenu() {
+        this.offCanvasMenu?.classList.add('active');
+        this.offCanvasOverlay?.classList.add('active');
+        this.mobileMenuBtn?.classList.add('active');
+        document.body.style.overflow = 'hidden';
         this.isMenuOpen = true;
     }
 
-    closeMobileMenu() {
-        this.mobileMenu.classList.add('mobile-menu-exit');
-        this.mobileMenuIcon?.classList.remove('fa-times');
-        this.mobileMenuIcon?.classList.add('fa-bars');
-        
-        setTimeout(() => {
-            this.mobileMenu.classList.add('hidden');
-            this.mobileMenu.classList.remove('mobile-menu-enter', 'mobile-menu-exit');
-        }, 300);
-        
+    closeOffCanvasMenu() {
+        this.offCanvasMenu?.classList.remove('active');
+        this.offCanvasOverlay?.classList.remove('active');
+        this.mobileMenuBtn?.classList.remove('active');
+        document.body.style.overflow = '';
         this.isMenuOpen = false;
     }
 
@@ -147,9 +152,9 @@ export class Navigation {
     }
 
     handleResize() {
-        // Close mobile menu on resize to desktop
+        // Close off-canvas menu on resize to desktop
         if (window.innerWidth > 768 && this.isMenuOpen) {
-            this.closeMobileMenu();
+            this.closeOffCanvasMenu();
         }
     }
 
