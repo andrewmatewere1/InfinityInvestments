@@ -8,6 +8,9 @@ export class Navigation {
         this.offCanvasClose = document.getElementById('offCanvasClose');
         this.isMenuOpen = false;
         
+        // Ensure body scroll is enabled on initialization
+        document.body.style.overflow = '';
+        
         this.init();
     }
 
@@ -65,7 +68,9 @@ export class Navigation {
         this.offCanvasMenu?.classList.remove('active');
         this.offCanvasOverlay?.classList.remove('active');
         this.mobileMenuBtn?.classList.remove('active');
+        // Ensure body scroll is always enabled
         document.body.style.overflow = '';
+        document.body.style.position = '';
         this.isMenuOpen = false;
     }
 
