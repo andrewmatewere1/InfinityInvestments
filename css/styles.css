@@ -197,6 +197,7 @@ img.loaded {
     color: #60a5fa;
 }
 
+
 /* Off-Canvas Menu Styles */
 .off-canvas-menu {
     position: fixed;
@@ -216,6 +217,7 @@ img.loaded {
     transform: translateZ(0);
     will-change: transform;
 }
+
 
 .dark .off-canvas-menu {
     background: #1f2937;
@@ -371,6 +373,7 @@ img.loaded {
 .hamburger-menu.active .hamburger-line:nth-child(3) {
     transform: rotate(-45deg) translate(7px, -7px);
 }
+
 
 /* Button Styles */
 .btn-primary {

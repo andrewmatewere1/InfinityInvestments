@@ -35,14 +35,6 @@ export class Navigation {
             this.closeOffCanvasMenu();
         });
 
-        // Close menu when clicking on links
-        const offCanvasLinks = this.offCanvasMenu?.querySelectorAll('a');
-        offCanvasLinks?.forEach(link => {
-            link.addEventListener('click', () => {
-                this.closeOffCanvasMenu();
-            });
-        });
-
         // ESC key to close
         document.addEventListener('keydown', (e) => {
             if (e.key === 'Escape' && this.isMenuOpen) {
@@ -78,18 +70,28 @@ export class Navigation {
     }
 
     setupSmoothScrolling() {
+        // Handle all anchor links with hash
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', (e) => {
-                e.preventDefault();
                 const targetId = anchor.getAttribute('href');
                 const target = document.querySelector(targetId);
                 
                 if (target) {
-                    const offsetTop = target.offsetTop - 80; // Account for sticky navbar
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
+                    e.preventDefault();
+                    
+                    // Close off-canvas menu if open
+                    if (this.isMenuOpen) {
+                        this.closeOffCanvasMenu();
+                    }
+                    
+                    // Scroll to target after menu closes
+                    setTimeout(() => {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start',
+                            inline: 'nearest'
+                        });
+                    }, 300);
                 }
             });
         });
@@ -162,11 +164,51 @@ export class Navigation {
     scrollToSection(sectionId) {
         const section = document.querySelector(sectionId);
         if (section) {
-            const offsetTop = section.offsetTop - 80;
-            window.scrollTo({
-                top: offsetTop,
-                behavior: 'smooth'
-            });
+            // Close off-canvas menu if open
+            if (this.isMenuOpen) {
+                this.closeOffCanvasMenu();
+            }
+            
+            // Small delay to ensure menu closes first
+            setTimeout(() => {
+                const offsetTop = section.offsetTop - 80;
+                window.scrollTo({
+                    top: offsetTop,
+                    behavior: 'smooth'
+                });
+            }, 300);
         }
+    }
+    
+    // Enhanced smooth scroll method for mobile compatibility
+    smoothScrollTo(targetElement) {
+        if (!targetElement) return;
+        
+        const targetPosition = targetElement.offsetTop - 80;
+        const startPosition = window.pageYOffset;
+        const distance = targetPosition - startPosition;
+        const duration = 800;
+        
+        let start = null;
+        
+        const animation = (currentTime) => {
+            if (start === null) start = currentTime;
+            const timeElapsed = currentTime - start;
+            const run = ease(timeElapsed, startPosition, distance, duration);
+            window.scrollTo(0, run);
+            
+            if (timeElapsed < duration) {
+                requestAnimationFrame(animation);
+            }
+        };
+        
+        const ease = (t, b, c, d) => {
+            t /= d / 2;
+            if (t < 1) return c / 2 * t * t + b;
+            t--;
+            return -c / 2 * (t * (t - 2) - 1) + b;
+        };
+        
+        requestAnimationFrame(animation);
     }
 }
