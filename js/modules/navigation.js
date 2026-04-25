@@ -72,12 +72,14 @@ export class Navigation {
     setupSmoothScrolling() {
         // Handle all anchor links with hash
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', (e) => {
+            // Add both click and touchend events for mobile compatibility
+            const handleNavigation = (e) => {
                 const targetId = anchor.getAttribute('href');
                 const target = document.querySelector(targetId);
                 
                 if (target) {
                     e.preventDefault();
+                    e.stopPropagation();
                     
                     // Close off-canvas menu if open
                     if (this.isMenuOpen) {
@@ -86,14 +88,28 @@ export class Navigation {
                     
                     // Scroll to target after menu closes
                     setTimeout(() => {
-                        target.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start',
-                            inline: 'nearest'
-                        });
-                    }, 300);
+                        // Use multiple methods for maximum compatibility
+                        try {
+                            target.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start',
+                                inline: 'nearest'
+                            });
+                        } catch (error) {
+                            // Fallback for older browsers
+                            const targetPosition = target.offsetTop - 80;
+                            window.scrollTo({
+                                top: targetPosition,
+                                behavior: 'smooth'
+                            });
+                        }
+                    }, 100); // Reduced delay for better mobile responsiveness
                 }
-            });
+            };
+            
+            // Add both click and touchend listeners
+            anchor.addEventListener('click', handleNavigation);
+            anchor.addEventListener('touchend', handleNavigation);
         });
     }
 

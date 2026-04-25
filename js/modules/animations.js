@@ -10,11 +10,12 @@ export class AnimationController {
     }
 
     init() {
-        this.setupIntersectionObserver();
+        this.setupScrollAnimations();
         this.setupParallax();
         this.setupCounters();
-        this.setupImageLoading();
-        this.setupScrollAnimations();
+        this.setupImageLazyLoading();
+        this.setupScrollProgress();
+        this.optimizeImageLoading();
     }
 
     setupIntersectionObserver() {
@@ -293,6 +294,36 @@ export class AnimationController {
         // Update elements with scroll-based animations
         document.querySelectorAll('[data-scroll-animation]').forEach(element => {
             this.handleScrollAnimation(element, scrolled);
+        });
+    }
+    
+    // Optimize image loading for better performance
+    optimizeImageLoading() {
+        // Add loading="lazy" to all images for better performance
+        document.querySelectorAll('img').forEach(img => {
+            if (!img.hasAttribute('loading')) {
+                img.setAttribute('loading', 'lazy');
+            }
+            
+            // Add fade-in effect for loaded images
+            img.addEventListener('load', () => {
+                img.style.opacity = '0';
+                img.style.transition = 'opacity 0.3s ease-in-out';
+                
+                setTimeout(() => {
+                    img.style.opacity = '1';
+                }, 100);
+            });
+            
+            // Preload critical images
+            if (img.classList.contains('critical')) {
+                const preloadImg = new Image();
+                preloadImg.src = img.src;
+                preloadImg.onload = () => {
+                    img.src = preloadImg.src;
+                    img.classList.add('loaded');
+                };
+            }
         });
     }
 

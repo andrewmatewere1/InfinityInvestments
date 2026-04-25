@@ -600,10 +600,40 @@ img.loaded {
         padding: 0 1rem;
     }
     
+    /* Image loading optimizations */
+    img {
+        max-width: 100%;
+        height: auto;
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    img[loading="lazy"] {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+    
+    img.loaded {
+        opacity: 1;
+    }
+    
+    img.critical {
+        background: #f3f4f6;
+        animation: pulse 2s infinite;
+    }
+    
+    @keyframes pulse {
+        0% { opacity: 0.6; }
+        50% { opacity: 1; }
+        100% { opacity: 0.6; }
+    }
+    
     /* Fix hamburger menu positioning on mobile */
     .hamburger-menu {
         position: relative;
         z-index: 10000;
+        /* Ensure touch targets are large enough */
+        min-height: 44px;
+        min-width: 44px;
     }
     
     /* Ensure navbar stays fixed on mobile */
@@ -613,6 +643,34 @@ img.loaded {
         left: 0 !important;
         right: 0 !important;
         z-index: 9997 !important;
+        /* Prevent touch scrolling issues */
+        -webkit-transform: translateZ(0);
+        transform: translateZ(0);
+    }
+    
+    /* Mobile-specific touch fixes */
+    @media (max-width: 768px) {
+        /* Prevent momentum scrolling on iOS */
+        .off-canvas-menu {
+            -webkit-overflow-scrolling: touch;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+        
+        /* Fix viewport issues on mobile */
+        body {
+            -webkit-overflow-scrolling: touch;
+            overflow-x: hidden;
+        }
+        
+        /* Ensure links are clickable on mobile */
+        .mobile-nav-link {
+            display: block;
+            padding: 12px 16px;
+            min-height: 44px;
+            touch-action: manipulation;
+            -webkit-tap-highlight-color: transparent;
+        }
     }
     
     /* Fix viewport issues on mobile browsers */
