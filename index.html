@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#ffffff">
+    <title>Infinity Investments - Building with Integrity</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
+    
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        navy: '#1e3a8a',
+                        'navy-dark': '#1e2a5a',
+                        orange: '#f97316',
+                        'orange-dark': '#ea580c'
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+    
+    <!-- Navbar -->
+    <nav class="fixed top-0 w-full bg-white dark:bg-gray-800 shadow-lg z-50 transition-colors duration-300 transform transition-transform duration-300">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="flex items-center">
+                    <i class="fas fa-building text-navy dark:text-blue-400 text-2xl mr-3"></i>
+                    <span class="text-xl font-bold text-navy dark:text-white">Infinity Investments</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="nav-link">Home</a>
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#projects" class="nav-link">Projects</a>
+                    <a href="#team" class="nav-link">Team</a>
+                    <a href="#contact" class="nav-link">Contact</a>
+                    <button id="darkModeToggle" class="p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition">
+                        <i class="fas fa-moon dark:hidden"></i>
+                        <i class="fas fa-sun hidden dark:inline"></i>
+                    </button>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" class="md:hidden p-2 rounded-lg bg-gray-200 dark:bg-gray-700">
+                    <i class="fas fa-bars text-gray-700 dark:text-gray-300"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobileMenu" class="hidden md:hidden pb-4">
+                <a href="#home" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-navy dark:hover:text-blue-400 transition">Home</a>
+                <a href="#about" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-navy dark:hover:text-blue-400 transition">About</a>
+                <a href="#services" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-navy dark:hover:text-blue-400 transition">Services</a>
+                <a href="#projects" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-navy dark:hover:text-blue-400 transition">Projects</a>
+                <a href="#team" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-navy dark:hover:text-blue-400 transition">Team</a>
+                <a href="#contact" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-navy dark:hover:text-blue-400 transition">Contact</a>
+                <button id="darkModeToggleMobile" class="mt-2 p-2 rounded-lg bg-gray-200 dark:bg-gray-700 text-gray-700 dark:text-gray-300 hover:bg-gray-300 dark:hover:bg-gray-600 transition w-full text-left">
+                    <i class="fas fa-moon dark:hidden mr-2"></i>
+                    <i class="fas fa-sun hidden dark:inline mr-2"></i>
+                    <span class="dark:hidden">Dark Mode</span>
+                    <span class="hidden dark:inline">Light Mode</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Hero Section -->
+    <section id="home" class="hero-bg min-h-screen flex items-center justify-center text-white parallax" data-parallax data-parallax-speed="0.5">
+        <div class="container mx-auto px-4 text-center" data-aos="fade-up">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight text-responsive-6xl">
+                Building with Integrity<br>
+                <span class="text-orange">•</span> Delivering Quality<br>
+                <span class="text-orange">•</span> Engineering the Future
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+                Professional construction company delivering quality building, civil and road construction solutions with integrity and efficiency.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#services" class="btn-primary">Our Services</a>
+                <a href="#contact" class="btn-secondary">Contact Us</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- About Section -->
+    <section id="about" class="section-padding bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-navy dark:text-white mb-12 text-responsive-4xl" data-aos="fade-up">Corporate Overview</h2>
+            
+            <div class="max-w-4xl mx-auto mb-16" data-aos="fade-up" data-aos-delay="100">
+                <p class="text-lg text-gray-700 dark:text-gray-300 text-center leading-relaxed">
+                    Infinity Investments is a professional construction company delivering quality building, civil and road construction solutions with integrity and efficiency. We are committed to excellence in every project we undertake, ensuring client satisfaction through innovative approaches and sustainable practices.
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="gradient-navy p-8 rounded-xl text-white" data-aos="fade-right">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-eye text-3xl text-orange mr-4"></i>
+                        <h3 class="text-2xl font-bold">Our Vision</h3>
+                    </div>
+                    <p class="text-gray-100">
+                        To be the leading construction company known for quality, innovation, and sustainability in the region, setting industry standards for excellence.
+                    </p>
+                </div>
+                
+                <div class="gradient-orange p-8 rounded-xl text-white" data-aos="fade-left">
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-bullseye text-3xl text-white mr-4"></i>
+                        <h3 class="text-2xl font-bold">Our Mission</h3>
+                    </div>
+                    <p class="text-gray-100">
+                        To deliver cost-effective, timely, high-quality construction solutions with safety and professionalism, exceeding client expectations.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Core Values Section -->
+    <section id="values" class="section-padding bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-navy dark:text-white mb-12 text-responsive-4xl" data-aos="fade-up">Core Values</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="value-card bg-white dark:bg-gray-800 p-6 rounded-xl text-center shadow-lg" data-aos="zoom-in" data-aos-delay="100">
+                    <i class="fas fa-handshake text-4xl text-orange mb-4"></i>
+                    <h3 class="font-semibold text-navy dark:text-white">Integrity & Transparency</h3>
+                </div>
+                
+                <div class="value-card bg-white dark:bg-gray-800 p-6 rounded-xl text-center shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                    <i class="fas fa-award text-4xl text-orange mb-4"></i>
+                    <h3 class="font-semibold text-navy dark:text-white">Quality & Excellence</h3>
+                </div>
+                
+                <div class="value-card bg-white dark:bg-gray-800 p-6 rounded-xl text-center shadow-lg" data-aos="zoom-in" data-aos-delay="300">
+                    <i class="fas fa-hard-hat text-4xl text-orange mb-4"></i>
+                    <h3 class="font-semibold text-navy dark:text-white">Safety First</h3>
+                </div>
+                
+                <div class="value-card bg-white dark:bg-gray-800 p-6 rounded-xl text-center shadow-lg" data-aos="zoom-in" data-aos-delay="400">
+                    <i class="fas fa-smile text-4xl text-orange mb-4"></i>
+                    <h3 class="font-semibold text-navy dark:text-white">Client Satisfaction</h3>
+                </div>
+                
+                <div class="value-card bg-white dark:bg-gray-800 p-6 rounded-xl text-center shadow-lg" data-aos="zoom-in" data-aos-delay="500">
+                    <i class="fas fa-leaf text-4xl text-orange mb-4"></i>
+                    <h3 class="font-semibold text-navy dark:text-white">Sustainability</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Services Section -->
+    <section id="services" class="section-padding bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-navy dark:text-white mb-12 text-responsive-4xl" data-aos="fade-up">Our Services</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="service-card bg-gray-50 dark:bg-gray-700 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-building text-4xl text-orange mb-4"></i>
+                    <h3 class="text-xl font-bold text-navy dark:text-white mb-3">Building Construction</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Residential, commercial, and industrial building construction with modern techniques and quality materials.</p>
+                </div>
+                
+                <div class="service-card bg-gray-50 dark:bg-gray-700 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-road text-4xl text-orange mb-4"></i>
+                    <h3 class="text-xl font-bold text-navy dark:text-white mb-3">Civil & Road Works</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Comprehensive civil engineering and road construction services for infrastructure development.</p>
+                </div>
+                
+                <div class="service-card bg-gray-50 dark:bg-gray-700 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-mountain text-4xl text-orange mb-4"></i>
+                    <h3 class="text-xl font-bold text-navy dark:text-white mb-3">Earthworks & Drainage</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Professional earthmoving, excavation, and drainage solutions for construction sites.</p>
+                </div>
+                
+                <div class="service-card bg-gray-50 dark:bg-gray-700 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="400">
+                    <i class="fas fa-truck text-4xl text-orange mb-4"></i>
+                    <h3 class="text-xl font-bold text-navy dark:text-white mb-3">Equipment & Plant Hire</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Modern construction equipment and machinery available for short and long-term hire.</p>
+                </div>
+                
+                <div class="service-card bg-gray-50 dark:bg-gray-700 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="500">
+                    <i class="fas fa-tasks text-4xl text-orange mb-4"></i>
+                    <h3 class="text-xl font-bold text-navy dark:text-white mb-3">Project Management</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Expert project management services ensuring timely completion within budget constraints.</p>
+                </div>
+                
+                <div class="service-card bg-gray-50 dark:bg-gray-700 p-8 rounded-xl" data-aos="fade-up" data-aos-delay="600">
+                    <i class="fas fa-drafting-compass text-4xl text-orange mb-4"></i>
+                    <h3 class="text-xl font-bold text-navy dark:text-white mb-3">Design & Build</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Integrated design and construction services for seamless project delivery.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Plant & Equipment Section -->
+    <section id="equipment" class="section-padding bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-navy dark:text-white mb-12 text-responsive-4xl" data-aos="fade-up">Plant & Equipment</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl text-center shadow-lg" data-aos="flip-left" data-aos-delay="100">
+                    <i class="fas fa-tractor text-5xl text-orange mb-4"></i>
+                    <h3 class="font-semibold text-navy dark:text-white">Motor Graders</h3>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl text-center shadow-lg" data-aos="flip-left" data-aos-delay="200">
+                    <i class="fas fa-excavator text-5xl text-orange mb-4"></i>
+                    <h3 class="font-semibold text-navy dark:text-white">Excavators</h3>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl text-center shadow-lg" data-aos="flip-left" data-aos-delay="300">
+                    <i class="fas fa-truck-loading text-5xl text-orange mb-4"></i>
+                    <h3 class="font-semibold text-navy dark:text-white">Tipper Trucks</h3>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl text-center shadow-lg" data-aos="flip-left" data-aos-delay="400">
+                    <i class="fas fa-compress-arrows-alt text-5xl text-orange mb-4"></i>
+                    <h3 class="font-semibold text-navy dark:text-white">Rollers & Compactors</h3>
+                </div>
+                
+                <div class="bg-white dark:bg-gray-800 p-6 rounded-xl text-center shadow-lg" data-aos="flip-left" data-aos-delay="500">
+                    <i class="fas fa-blender text-5xl text-orange mb-4"></i>
+                    <h3 class="font-semibold text-navy dark:text-white">Concrete Mixers</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Why Choose Us Section -->
+    <section id="why-choose-us" class="section-padding bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-navy dark:text-white mb-12 text-responsive-4xl" data-aos="fade-up">Why Choose Us</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon bg-orange">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy dark:text-white mb-2">Proven Technical Capacity</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Highly skilled workforce with modern equipment and proven methodologies.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon bg-orange">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy dark:text-white mb-2">Competitive Pricing</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Cost-effective solutions without compromising on quality and safety standards.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon bg-orange">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy dark:text-white mb-2">Timely Delivery</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Commitment to project timelines with efficient project management.</p>
+                </div>
+                
+                <div class="text-center" data-aos="fade-up" data-aos-delay="400">
+                    <div class="feature-icon bg-orange">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-navy dark:text-white mb-2">Experienced Workforce</h3>
+                    <p class="text-gray-600 dark:text-gray-300">Dedicated team with years of industry experience and expertise.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Projects Section -->
+    <section id="projects" class="section-padding bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-navy dark:text-white mb-12 text-responsive-4xl" data-aos="fade-up">Our Projects</h2>
+            
+            <!-- Filter Buttons -->
+            <div class="flex justify-center mb-12" data-aos="fade-up" data-aos-delay="100">
+                <div class="inline-flex rounded-lg border border-gray-300 dark:border-gray-600">
+                    <button class="filter-btn px-6 py-2 rounded-l-lg bg-navy text-white" data-filter="all" aria-pressed="true">All</button>
+                    <button class="filter-btn px-6 py-2 bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" data-filter="completed" aria-pressed="false">Completed</button>
+                    <button class="filter-btn px-6 py-2 rounded-r-lg bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700" data-filter="in-progress" aria-pressed="false">In Progress</button>
+                </div>
+            </div>
+            
+            <!-- Swiper Gallery -->
+            <div class="swiper projectSwiper" data-aos="fade-up" data-aos-delay="200" role="region" aria-label="Projects carousel">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-category="completed">
+                        <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Office Complex" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy dark:text-white mb-2">Modern Office Complex</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-2">Client: ABC Corporation</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Timeline: Jan 2023 - Jun 2023</p>
+                                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide" data-category="in-progress">
+                        <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1541976590-713941681591?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Highway Construction" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy dark:text-white mb-2">Highway Construction Project</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-2">Client: Ministry of Transport</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Timeline: Mar 2023 - Dec 2023</p>
+                                <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">In Progress</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide" data-category="completed">
+                        <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Residential Complex" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy dark:text-white mb-2">Luxury Residential Complex</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-2">Client: Premier Properties</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Timeline: Aug 2022 - Feb 2023</p>
+                                <span class="inline-block px-3 py-1 bg-green-100 text-green-800 text-sm rounded-full">Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="swiper-slide" data-category="in-progress">
+                        <div class="project-card bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg">
+                            <img src="https://images.unsplash.com/photo-1518611012118-696072aa579a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Bridge Construction" class="w-full h-64 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-bold text-navy dark:text-white mb-2">Bridge Construction</h3>
+                                <p class="text-gray-600 dark:text-gray-300 mb-2">Client: Local Government</p>
+                                <p class="text-sm text-gray-500 dark:text-gray-400 mb-3">Timeline: May 2023 - Nov 2023</p>
+                                <span class="inline-block px-3 py-1 bg-yellow-100 text-yellow-800 text-sm rounded-full">In Progress</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="swiper-pagination"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Team Section -->
+    <section id="team" class="section-padding bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-navy dark:text-white mb-12 text-responsive-4xl" data-aos="fade-up">Our Team</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                <div class="team-card bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="100">
+                    <img src="assets/images/andy.jpg" alt="Managing Director" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-navy dark:text-white mb-1">Gift Mkono Esau</h3>
+                        <p class="text-orange font-semibold mb-2">Managing Director and Director of Engineering Services</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Mechanical Engineering</p>
+                    </div>
+                </div>
+                
+                <div class="team-card bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                    <img src="assets/images/andy.jpg" alt="Projects Manager South" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-navy dark:text-white mb-1">Davie Phiri</h3>
+                        <p class="text-orange font-semibold mb-2">Projects Manager (South)</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Construction Management</p>
+                    </div>
+                </div>
+                
+                <div class="team-card bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="300">
+                    <img src="assets/images/andy.jpg" alt="Projects Manager Centre and North" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-navy dark:text-white mb-1">Mike Katemecha</h3>
+                        <p class="text-orange font-semibold mb-2">Projects Manager (Centre and North)</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Project Management</p>
+                    </div>
+                </div>
+                
+                <div class="team-card bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="400">
+                    <img src="assets/images/andy.jpg" alt="Quantity Surveyor" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-navy dark:text-white mb-1">Kondwani Gondwe</h3>
+                        <p class="text-orange font-semibold mb-2">Quantity Surveyor and Contracts Manager</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Quantity Surveying</p>
+                    </div>
+                </div>
+                
+                <div class="team-card bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="500">
+                    <img src="assets/images/andy.jpg" alt="Head Foreman" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-navy dark:text-white mb-1">Davie Chinyama</h3>
+                        <p class="text-orange font-semibold mb-2">Head Foreman – Building and Civil Works</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Construction Foremanship</p>
+                    </div>
+                </div>
+                
+                <div class="team-card bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="600">
+                    <img src="assets/images/andy.jpg" alt="Operations Officer" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-navy dark:text-white mb-1">Monalisa Sapanga</h3>
+                        <p class="text-orange font-semibold mb-2">Operations and Logistics Officer</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Logistics Management</p>
+                    </div>
+                </div>
+                
+                <div class="team-card bg-gray-50 dark:bg-gray-700 rounded-xl overflow-hidden shadow-lg" data-aos="zoom-in" data-aos-delay="700">
+                    <img src="assets/images/andy.jpg" alt="Head Foreman Welding" class="w-full h-64 object-cover">
+                    <div class="p-6 text-center">
+                        <h3 class="text-xl font-bold text-navy dark:text-white mb-1">Emmanuel Chapotera</h3>
+                        <p class="text-orange font-semibold mb-2">Head Foreman – Welding and Fabrication</p>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm">Welding Technology</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- HSE Section -->
+    <section id="hse" class="section-padding bg-gray-50 dark:bg-gray-900">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-navy dark:text-white mb-12 text-responsive-4xl" data-aos="fade-up">Health, Safety & Environment</h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg" data-aos="fade-up">
+                    <div class="grid md:grid-cols-3 gap-8 text-center">
+                        <div>
+                            <div class="feature-icon bg-green-500">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-navy dark:text-white mb-2">Safety First</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Comprehensive safety protocols and regular training for all personnel.</p>
+                        </div>
+                        
+                        <div>
+                            <div class="feature-icon bg-blue-500">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-navy dark:text-white mb-2">Compliance</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Full compliance with local and international safety standards.</p>
+                        </div>
+                        
+                        <div>
+                            <div class="feature-icon bg-green-600">
+                                <i class="fas fa-leaf"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-navy dark:text-white mb-2">Environmental Care</h3>
+                            <p class="text-gray-600 dark:text-gray-300">Sustainable practices and environmental protection in all projects.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Contact Section -->
+    <section id="contact" class="section-padding bg-white dark:bg-gray-800">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center text-navy dark:text-white mb-12 text-responsive-4xl" data-aos="fade-up">Get In Touch</h2>
+            
+            <div class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+                <!-- Contact Form -->
+                <div data-aos="fade-right">
+                    <form id="contactForm" class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl">
+                        <div class="mb-6">
+                            <label for="name" class="block text-navy dark:text-white font-semibold mb-2">Name *</label>
+                            <input type="text" id="name" name="name" required class="form-input" aria-required="true">
+                            <span class="error-message" id="nameError" role="alert">Please enter your name</span>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="email" class="block text-navy dark:text-white font-semibold mb-2">Email *</label>
+                            <input type="email" id="email" name="email" required class="form-input" aria-required="true">
+                            <span class="error-message" id="emailError" role="alert">Please enter a valid email</span>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="phone" class="block text-navy dark:text-white font-semibold mb-2">Phone</label>
+                            <input type="tel" id="phone" name="phone" class="form-input">
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-navy dark:text-white font-semibold mb-2">Message *</label>
+                            <textarea id="message" name="message" required rows="4" class="form-input" aria-required="true"></textarea>
+                            <span class="error-message" id="messageError" role="alert">Please enter your message</span>
+                        </div>
+                        
+                        <button type="submit" class="w-full btn-primary">
+                            Send Message
+                        </button>
+                        
+                        <div id="successMessage" class="success-message hidden" role="alert">
+                            Thank you for your message! We'll get back to you soon.
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Google Maps -->
+                <div data-aos="fade-left">
+                    <div class="bg-gray-50 dark:bg-gray-700 p-8 rounded-xl h-full">
+                        <h3 class="text-xl font-bold text-navy dark:text-white mb-4">Our Location</h3>
+                        <div class="map-container">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15487.577113995223!2d33.78389224267345!3d-13.964898009575277!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1921d333453d1919%3A0x40f944b4371443d7!2sArea%2013%2C%20Lilongwe%2C%20Malawi!5e0!3m2!1sen!2sin!4v1777111376333!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        </div>
+                        
+                        <div class="mt-6">
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-map-marker-alt text-orange mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">PO Box 3222, Lilongwe, Malawi</span>
+                            </div>
+                            <div class="flex items-center mb-3">
+                                <i class="fas fa-phone text-orange mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">+265 1 234 567</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-orange mr-3"></i>
+                                <span class="text-gray-700 dark:text-gray-300">info@infinityinvestments.mw</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="section-padding gradient-navy">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-bold text-white mb-6 text-responsive-4xl" data-aos="fade-up">Ready to build with us?</h2>
+            <p class="text-xl text-gray-200 mb-8 max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
+                Let's discuss your next construction project and turn your vision into reality.
+            </p>
+            <a href="#contact" class="btn-primary" data-aos="fade-up" data-aos-delay="200">Get in Touch</a>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center mb-4">
+                        <i class="fas fa-building text-orange text-2xl mr-3"></i>
+                        <span class="text-xl font-bold">Infinity Investments</span>
+                    </div>
+                    <p class="text-gray-400">Building with Integrity • Delivering Quality • Engineering the Future</p>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-orange transition">About Us</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-orange transition">Services</a></li>
+                        <li><a href="#projects" class="text-gray-400 hover:text-orange transition">Projects</a></li>
+                        <li><a href="#team" class="text-gray-400 hover:text-orange transition">Team</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Contact Info</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li>PO Box 3222, Lilongwe</li>
+                        <li>+265 1 234 567</li>
+                        <li>info@infinityinvestments.mw</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="font-semibold mb-4">Follow Us</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
+                <p>&copy; 2023 Infinity Investments. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script type="module" src="js/app.js"></script>
+    
+    <!-- Screen reader only content for accessibility -->
+    <div class="sr-only" aria-live="polite" id="screen-reader-announcements"></div>
+</body>
+</html>

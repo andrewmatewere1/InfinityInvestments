@@ -1,0 +1,458 @@
+/* Custom Styles for Infinity Investments Website */
+
+/* Base Styles */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Dark Mode */
+.dark {
+    color-scheme: dark;
+}
+
+/* Hero Section */
+.hero-bg {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1541888946145-81ae9e6bb033?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1920&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* Swiper Styles */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Card Animations */
+.project-card {
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.team-card {
+    transition: all 0.3s ease;
+}
+
+.team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.service-card {
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+}
+
+.value-card {
+    transition: all 0.3s ease;
+}
+
+.value-card:hover {
+    transform: scale(1.05);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #1e3a8a;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #1e40af;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: #3b82f6;
+}
+
+/* Animation Classes */
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Image Loading */
+img {
+    transition: opacity 0.3s ease;
+}
+
+img:not(.loaded) {
+    opacity: 0.7;
+}
+
+img.loaded {
+    opacity: 1;
+}
+
+/* Form Validation Styles */
+.border-red-500 {
+    border-color: #ef4444 !important;
+}
+
+/* Responsive Utilities */
+@media (max-width: 768px) {
+    .hero-bg {
+        background-attachment: scroll;
+    }
+}
+
+/* Additional Utility Classes */
+.shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Parallax Effect */
+.parallax {
+    transform: translate3d(0, 0, 0);
+    will-change: transform;
+}
+
+/* Loading States */
+.loading {
+    opacity: 0.7;
+    pointer-events: none;
+}
+
+/* Focus States */
+.focus\:outline-none:focus {
+    outline: none;
+}
+
+.focus\:border-orange:focus {
+    border-color: #f97316;
+}
+
+/* Dark Mode Transitions */
+.transition-colors {
+    transition-property: background-color, border-color, color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+}
+
+/* Hover Effects */
+.hover\:scale-105:hover {
+    transform: scale(1.05);
+}
+
+.hover\:bg-orange:hover {
+    background-color: #f97316;
+}
+
+.hover\:bg-orange-dark:hover {
+    background-color: #ea580c;
+}
+
+.hover\:bg-gray-300:hover {
+    background-color: #d1d5db;
+}
+
+.hover\:bg-gray-700:hover {
+    background-color: #374151;
+}
+
+.hover\:text-navy:hover {
+    color: #1e3a8a;
+}
+
+.hover\:text-blue-400:hover {
+    color: #60a5fa;
+}
+
+/* Mobile Menu Animations */
+.mobile-menu-enter {
+    animation: slideDown 0.3s ease-out;
+}
+
+.mobile-menu-exit {
+    animation: slideUp 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+}
+
+/* Button Styles */
+.btn-primary {
+    background-color: #f97316;
+    color: white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #ea580c;
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+    background-color: white;
+    color: #1e3a8a;
+    transform: scale(1.05);
+}
+
+/* Card Styles */
+.card {
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.dark .card {
+    background-color: #1f2937;
+}
+
+/* Gradient Backgrounds */
+.gradient-navy {
+    background: linear-gradient(135deg, #1e3a8a 0%, #1e2a5a 100%);
+}
+
+.gradient-orange {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+}
+
+/* Text Utilities */
+.text-gradient {
+    background: linear-gradient(135deg, #1e3a8a 0%, #f97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Section Spacing */
+.section-padding {
+    padding: 5rem 0;
+}
+
+.section-padding-sm {
+    padding: 3rem 0;
+}
+
+/* Container Utilities */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Grid Utilities */
+.grid-auto-fit {
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-auto-fill {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+/* Navigation Styles */
+.nav-link {
+    color: #374151;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #1e3a8a;
+}
+
+.dark .nav-link {
+    color: #d1d5db;
+}
+
+.dark .nav-link:hover {
+    color: #60a5fa;
+}
+
+/* Form Styles */
+.form-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid #d1d5db;
+    background-color: white;
+    color: #111827;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #f97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.1);
+}
+
+.dark .form-input {
+    background-color: #1f2937;
+    border-color: #4b5563;
+    color: #f9fafb;
+}
+
+.dark .form-input:focus {
+    border-color: #f97316;
+    box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.2);
+}
+
+/* Error States */
+.error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+.success-message {
+    background-color: #10b981;
+    color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* Map Container */
+.map-container {
+    border-radius: 0.75rem;
+    overflow: hidden;
+    height: 24rem;
+}
+
+/* Social Icons */
+.social-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    background-color: #1f2937;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: all 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: #f97316;
+    transform: scale(1.1);
+}
+
+/* Feature Icons */
+.feature-icon {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+    color: white;
+    font-size: 1.875rem;
+}
+
+/* Loading Animation */
+.loading-spinner {
+    border: 3px solid #f3f4f6;
+    border-top: 3px solid #f97316;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive Typography */
+@media (max-width: 640px) {
+    .text-responsive-4xl {
+        font-size: 2rem;
+        line-height: 1.2;
+    }
+    
+    .text-responsive-6xl {
+        font-size: 2.5rem;
+        line-height: 1.1;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .text-responsive-4xl {
+        font-size: 3rem;
+        line-height: 1.2;
+    }
+    
+    .text-responsive-6xl {
+        font-size: 4rem;
+        line-height: 1.1;
+    }
+}
